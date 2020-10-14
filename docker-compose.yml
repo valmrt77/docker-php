@@ -1,0 +1,13 @@
+serv:
+    image: nginx:latest
+    ports: 
+        - "8085:80"
+    volumes:
+        - ./code:/code
+        - ./default.conf:/etc/nginx/conf.d/default.conf
+    links: 
+        - php
+php:
+    image: php:7-fpm
+    volumes:
+        - ./code:/code
